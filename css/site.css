@@ -2,12 +2,13 @@
 
 :root {
   --brand-navy: #06315c;
+  --brand-red: rgb(203, 0, 0);
   --light-gray: #dddddd;
 }
 
 html {
   font-family: 'Saira', sans-serif;
-  font-size: 24px;
+  font-size: 30px;
 }
 
 body {
@@ -18,9 +19,13 @@ header {
   background-color: var(--brand-navy);
 }
 
+h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
 p {
   line-height: 1.5em;
-  margin: 0;
 }
 
 ul {
@@ -60,7 +65,142 @@ header > nav > ul li a {
   color: var(--brand-navy);
   border: 3px solid white;
   padding: 0 .25rem;
+  margin: 0;
   font-weight: bold;
   line-height: 1em;
   text-transform: capitalize;
+}
+
+footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem;
+  background-color: var(--brand-navy);
+  color: white;
+}
+
+#hero {
+  position: relative;
+  background-color: black;
+}
+
+#hero h1 {
+  position: absolute;
+  top: 75%;
+  width: 100%;
+  height: 25%;
+  margin: 0;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 -25px 25px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+#hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+#what-do-we-do {
+  max-width: 1200px;
+  margin: 1rem 15%;
+}
+
+#what-do-we-do h2 {
+  text-align: center;
+}
+
+.link-btn {
+  display: block;
+  width: fit-content;
+  margin: 1rem auto;
+  padding: .5rem 1rem;
+  border-radius: .25rem;
+  background-color: var(--brand-red);
+  color: white;
+  text-decoration: none;
+}
+
+#project-highlights {
+  background-color: var(--light-gray);
+  padding: 2rem 5%;
+}
+
+#project-highlights h2 {
+  margin: .25rem 0;
+}
+
+.project {
+  padding-bottom: 1rem;
+  background-color: white;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .25rem .5rem;
+  background-color: var(--brand-red);
+  color: white;
+}
+
+.project-header h2,
+.project-header h3 {
+  margin: 0;
+}
+
+.project-header time {
+  color: var(--light-gray);
+}
+
+.project-body {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas:
+    "before description"
+    "after outcome";
+}
+
+.job-description {
+  grid-area: description;
+}
+
+.job-outcome {
+  grid-area: outcome;
+}
+
+.before {
+  grid-area: before;
+}
+
+.after {
+  grid-area: after;
+}
+
+.customer-review {
+  margin: 1rem 10%;
+  padding: 1rem 1.5rem;
+  border-radius: .25rem;
+  background-color: var(--brand-navy);
+  color: white;
+}
+
+.customer-review h4,
+.customer-review h3 {
+  margin: 0;
+}
+
+.customer-review p {
+  margin: 0;
+}
+
+#project-highlights > a {
+  margin: 1rem auto;
+}
+
+#contact-us-section h2 {
+  text-align: center;
+  
 }
