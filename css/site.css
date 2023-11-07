@@ -252,3 +252,29 @@ footer {
 .question {
   font-weight: bold;
 }
+
+.about-us-section {
+  margin: 1rem 15%;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 1rem;
+}
+
+.about-us-section.invert {
+  flex-direction: row;
+}
+
+.about-us-section h2 {
+  text-align: center;
+  margin: 0;
+}
+.about-us-section > img {
+  min-width: 250px;
+  flex-shrink: 0;
+  border: 1px solid black;
+}
+
+#about-us #contact-us-section {
+  border-top: 1px solid var(--light-gray)
+}
