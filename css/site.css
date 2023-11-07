@@ -168,6 +168,7 @@ footer {
   grid-template-areas:
     "before description"
     "after outcome";
+  padding: .5rem 1rem;
 }
 
 .job-description {
