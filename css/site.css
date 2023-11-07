@@ -55,6 +55,11 @@ header > nav > ul li a {
   text-decoration: none;
 }
 
+header > nav > ul li a.active {
+  text-decoration: underline;
+  text-underline-offset: .25rem;
+}
+
 .logo {
   background-color: var(--light-gray);
   padding: .2rem;
