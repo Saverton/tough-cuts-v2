@@ -134,6 +134,7 @@ footer {
 
 .project {
   padding-bottom: 1rem;
+  margin-bottom: 2rem;
   background-color: white;
 }
 
@@ -200,7 +201,20 @@ footer {
   margin: 1rem auto;
 }
 
-#contact-us-section h2 {
+#contact-us-section {
+  background-color: white;
+}
+
+#projects h1 {
   text-align: center;
-  
+}
+
+#contact-us-section h2,
+#contact-us-section p {
+  text-align: center;
+}
+
+#projects-section {
+  padding: 1rem 10%;
+  background-color: var(--light-gray);
 }
