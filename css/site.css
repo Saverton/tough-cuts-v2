@@ -207,6 +207,7 @@ footer {
 
 #projects h1 {
   text-align: center;
+  margin: 1rem 0;
 }
 
 #contact-us-section h2,
@@ -217,4 +218,37 @@ footer {
 #projects-section {
   padding: 1rem 10%;
   background-color: var(--light-gray);
+}
+
+#faq h1 {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.question-answer {
+  margin: 0 20%;
+  padding: .5rem 0;
+  border-bottom: 1px solid var(--light-gray);
+  text-align: justify;
+}
+
+.question-answer .question::before,
+.question-answer .answer::before {
+  margin-right: .5rem;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--brand-navy);
+}
+
+.question-answer .question::before {
+  content: 'q:';
+}
+
+.question-answer .answer::before {
+  content: 'a:';
+}
+
+.question {
+  font-weight: bold;
 }
