@@ -268,12 +268,11 @@ footer {
 
 .about-us-section h2 {
   text-align: center;
+  text-transform: capitalize;
   margin: 0;
 }
 .about-us-section > img {
-  min-width: 250px;
-  flex-shrink: 0;
-  border: 1px solid black;
+  max-width: 350px;
 }
 
 #about-us #contact-us-section {
