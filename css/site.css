@@ -5,6 +5,8 @@
   --brand-navy: #06315c;
   --brand-red: rgb(203, 0, 0);
   --light-gray: #dddddd;
+  --danger: #a00;
+  --info: #00c;
 }
 
 html {
@@ -355,4 +357,39 @@ footer {
 
 #contact-info a {
   color: white;
+}
+
+.error-message {
+  width: fit-content;
+  margin: 0 auto;
+  padding: .5rem 1rem;
+  border: 1px solid var(--danger);
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.25rem;
+  color: var(--danger);
+}
+
+.loading-message {
+  width: fit-content;
+  margin: 0 auto;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.25rem;
+  color: var(--info);
+  animation: pulse .75s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: .25;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: .25;
+  }
 }
