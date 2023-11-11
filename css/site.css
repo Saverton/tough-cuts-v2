@@ -11,7 +11,7 @@
 
 html {
   font-family: 'Saira', sans-serif;
-  font-size: 30px;
+  font-size: 28px;
 }
 
 body {
@@ -95,7 +95,8 @@ footer {
 #hero {
   position: relative;
   background-color: black;
-  max-height: 800px;
+  height: fit-content;
+  max-height: 700px;
   overflow: hidden;
 }
 
@@ -404,6 +405,10 @@ footer {
     font-size: 24px;
   }
 
+  #hero {
+    max-height: 500px;
+  }
+
   #what-do-we-do {
     margin: 1rem 15%;
   }
@@ -473,6 +478,10 @@ footer {
     font-size: 1.75rem;
   }
 
+  #hero {
+    max-height: 400px;
+  }
+
   #contact-us-section {
     margin: 0 5%;
   }
@@ -537,6 +546,10 @@ footer {
 
   footer {
     text-align: center;
+  }
+
+  #hero {
+    max-height: 250px;
   }
 
   #what-do-we-do {
@@ -629,6 +642,10 @@ footer {
 @media screen and (max-width: 425px) {
   p {
     text-align:justify
+  }
+
+  #hero {
+    max-height: 200px;
   }
 
   #hero h1 {
