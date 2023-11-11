@@ -90,6 +90,8 @@ footer {
 #hero {
   position: relative;
   background-color: black;
+  max-height: 800px;
+  overflow: hidden;
 }
 
 #hero h1 {
@@ -113,7 +115,7 @@ footer {
 
 #what-do-we-do {
   max-width: 1200px;
-  margin: 1rem 15%;
+  margin: 1rem auto;
 }
 
 #what-do-we-do h2 {
@@ -129,20 +131,23 @@ footer {
   background-color: var(--brand-red);
   color: white;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 #project-highlights {
-  background-color: var(--light-gray);
   padding: 2rem 5%;
+  background-color: var(--light-gray);
 }
 
 #project-highlights h2 {
-  margin: .25rem 0;
+  max-width: 1200px;
+  margin: .25rem auto;
 }
 
 .project {
+  max-width: 1200px;
   padding-bottom: 1rem;
-  margin-bottom: 2rem;
+  margin: 0 auto 2rem;
   background-color: white;
 }
 
@@ -265,22 +270,28 @@ footer {
 .about-us-section {
   margin: 1rem 15%;
   display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
+  flex-direction: row;
+  align-items: start;
   gap: 1rem;
 }
 
 .about-us-section.invert {
-  flex-direction: row;
+  flex-direction: row-reverse;
 }
 
 .about-us-section h2 {
-  text-align: center;
+  text-align: left;
   text-transform: capitalize;
   margin: 0;
 }
+
+.about-us-section.invert h2,
+.about-us-section.invert p {
+  text-align: right;
+}
+
 .about-us-section > img {
-  max-width: 350px;
+  width: 500px;
 }
 
 #about-us #contact-us-section {
@@ -292,11 +303,14 @@ footer {
 }
 
 #service-area {
+  margin: 0 20% 2rem;
+}
+
+#service-area div {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
   gap: .5rem;
-  margin: 0 20% 2rem;
 }
 
 #service-area h2 {
@@ -306,7 +320,6 @@ footer {
 #what-to-expect,
 #billing-info {
   margin: 1rem 20%;
-  font-size: .75em;
 }
 
 #what-to-expect h2,
@@ -326,6 +339,7 @@ footer {
 }
 
 #contact-info h2 {
+  text-align: center;
   margin-top: 0;
 }
 
@@ -378,6 +392,278 @@ footer {
   font-size: 1.25rem;
   color: var(--info);
   animation: pulse .75s ease-in-out infinite;
+}
+
+@media screen and (max-width: 1440px) {
+  html {
+    font-size: 24px;
+  }
+
+  #what-do-we-do {
+    margin: 1rem 15%;
+  }
+
+  .about-us-section img {
+    width: 350px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  #what-do-we-do {
+    margin: 1rem 10%;
+  }
+
+  #contact-us-section {
+    margin: 0 10%;
+  }
+
+  .question-answer {
+    margin: 0 15%;
+  }
+
+  .about-us-section {
+    display: block;
+    margin: 1rem 10% 2rem;
+  }
+
+  .about-us-section h2,
+  .about-us-section.invert h2 {
+    text-align: center;
+  }
+
+  .about-us-section.invert p {
+    text-align: left;
+  }
+
+  .about-us-section img {
+    float: left;
+    margin-right: 1rem;
+  }
+
+  .about-us-section.invert img {
+    float: right;
+    margin-left: 1rem;
+  }
+
+  #service-area {
+    margin: 0 10% 1rem;
+  }
+
+  #what-to-expect,
+  #billing-info {
+    margin: 1rem 10%;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  html {
+    font-size: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  #contact-us-section {
+    margin: 0 5%;
+  }
+
+  #contact-us-section h2 {
+    font-size: 1.25rem;
+  }
+
+  #projects-section {
+    padding: 1rem 5%;
+  }
+
+  .question-answer {
+    margin: 0 10%;
+  }
+
+  .about-us-section img {
+    width: 300px;
+  }
+
+  #service-area {
+    margin: 0 5%;
+  }
+
+  #contact-info {
+    padding: 1rem 5%;
+  }
+
+  #contact-info li {
+    font-size: 1.2em;
+  }
+
+  #what-to-expect,
+  #billing-info {
+    margin: 2rem 5%
+  }
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  header {
+    flex-direction: column;
+    gap: .5rem;
+    padding: .75rem;
+  }
+
+  header > nav > ul {
+    justify-content: center;
+    padding: 0;
+  }
+
+  footer {
+    text-align: center;
+  }
+
+  #what-do-we-do {
+    margin: 1rem;
+  }
+
+  .project-body {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "before"
+      "description"
+      "after"
+      "outcome";
+    align-items: center;
+  }
+
+  .job-description,
+  .job-outcome {
+    text-align: justify;
+  }
+
+  .project figcaption {
+    text-align: center;
+  }
+
+  .project figure {
+    width: fit-content;
+    margin: 0 auto;
+  }
+
+  .customer-review {
+    margin: 1rem;
+    margin-bottom: 0;
+  }
+
+  .about-us-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+  }
+
+  .about-us-section.invert {
+    flex-direction: column;
+  }
+
+  .about-us-section h2,
+  .about-us-section.invert h2 {
+    text-align: center;
+  }
+
+  .about-us-section.invert p {
+    text-align: justify;
+  }
+
+  .about-us-section img,
+  .about-us-section.invert img {
+    float: none;
+    margin: 0;
+  }
+
+  #contact-us h2 {
+    text-align: center;
+  }
+
+  #service-area div {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #service-area ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  #contact-info {
+    padding: 1rem 0;
+  }
+
+  #contact-info li {
+    padding: .5rem 1rem;
+    height: auto;
+  }
+
+  footer {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  p {
+    text-align:justify
+  }
+
+  #hero h1 {
+    font-size: 1.25rem;
+  }
+
+  #project-highlights {
+    padding: 1rem 0;
+  }
+
+  #project-highlights h2 {
+    text-align: center;
+  }
+
+  #projects-section {
+    padding: 0;
+    background-color: #fff;
+  }
+
+  #projects-section .project {
+    border: 2px solid #bbb;
+  }
+
+  #faq h1 {
+    margin: .5rem 1rem;
+  }
+
+  .question-answer {
+    margin: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  #contact-info li {
+    font-size: 1em;
+    justify-content: center;
+  }
+
+  #contact-info li > i {
+    display: none;
+  }
 }
 
 @keyframes pulse {
