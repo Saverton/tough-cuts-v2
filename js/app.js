@@ -1,7 +1,19 @@
 "use strict";
 
 (function (app) {
+  app.copyrightYear = document.getElementById('copyright-year');
+
+  app.initIndex = async function () {
+    setCopyrightYear();
+  }
+
+  app.initProjects = async function () {
+    setCopyrightYear();
+  }
+
   app.initFaq = async function () {
+    setCopyrightYear();
+
     const faqContainer = document.getElementById('faqs-container');
 
     const loadMessage = buildLoadMessage('Loading FAQs...');
@@ -28,6 +40,14 @@
       faqContainer.innerHTML = ''; // remove loading message
       faqContainer.appendChild(errMessage);
     }
+  }
+
+  app.initAboutUs = async function () {
+    setCopyrightYear();
+  }
+
+  app.initContactUs = async function () {
+    setCopyrightYear();
   }
 
   async function getFaqs() {
@@ -72,6 +92,11 @@
     loadMessage.textContent = message;
 
     return loadMessage;
+  }
+
+  function setCopyrightYear() {
+    const year = new Date().getFullYear();
+    app.copyrightYear.textContent = year;
   }
 })(window.app = window.app || {});
 
