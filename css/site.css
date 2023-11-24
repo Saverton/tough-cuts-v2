@@ -794,3 +794,32 @@ footer {
     max-width: 3.5in;
   }
 }
+
+@media screen and (prefers-color-scheme: dark) {
+  html {
+    background-color: #333;
+    color: var(--light-gray);
+  }
+
+  #project-highlights,
+  #projects-section {
+    background-color: #151515;
+  }
+
+  .project {
+    background-color: #454545;
+  }
+
+  #contact-us-section {
+    background-color: #333;
+  }
+
+  .question::before,
+  .answer::before {
+    color: var(--light-gray) !important;
+  }
+
+  #contact-info {
+    background-color: #151515;
+  }
+}
