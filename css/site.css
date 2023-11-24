@@ -701,3 +701,96 @@ footer {
     opacity: .25;
   }
 }
+
+@media print {
+  html {
+    font-size: 12pt !important;
+    padding: 1in !important;
+  }
+
+  header, footer, #hero img, #contact-us-section {
+    display: none;
+  }
+
+  #hero h1 {
+    position: static;
+  }
+
+  a {
+    text-decoration: underline !important;
+  }
+
+  a::after {
+    content: ' (' attr(href) ')';
+    display: inline;
+    color: #000;
+  }
+
+  *,
+  *::before,
+  *::after {
+    background-color: #fff !important;
+    color: #000 !important;
+  }
+
+  .project {
+    page-break-after: always;
+  }
+
+  #projects-section {
+    padding: 0 !important;
+  }
+
+  .project-body {
+    display: flex !important;
+    flex-direction: column;
+    padding: 0 !important;
+  }
+
+  .customer-review {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .question-answer {
+    page-break-inside: avoid;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #contact-info,
+  #billing-info,
+  #what-to-expect,
+  #service-area {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  #service-area div {
+    flex-direction: column;
+  }
+
+  #contact-info ul {
+    margin-bottom: 2rem;
+  }
+
+  #contact-info li {
+    height: auto;
+    justify-content: start;
+  }
+
+  .about-us-section {
+    margin: 0 !important;
+    flex-direction: column !important;
+    page-break-inside: avoid;
+  }
+
+  .about-us-section p,
+  .about-us-section h2 {
+    text-align: left !important;
+  }
+
+  .about-us-section img {
+    max-width: 3.5in;
+  }
+}
