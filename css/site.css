@@ -128,6 +128,32 @@ footer {
   text-align: center;
 }
 
+#services-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+#services-list li {
+  display: flex;
+  gap: 1rem;
+  align-items: start;
+}
+
+#services-list li.invert {
+  flex-direction: row-reverse;
+}
+
+.service-li-image {
+  aspect-ratio: 1;
+  max-width: 300px;
+  object-fit: cover;
+  object-position: center;
+}
+
 .link-btn {
   display: block;
   width: fit-content;
@@ -482,6 +508,10 @@ footer {
     max-height: 400px;
   }
 
+  .service-li-image {
+    max-width: 225px;
+  }
+
   #contact-us-section {
     margin: 0 5%;
   }
@@ -554,6 +584,18 @@ footer {
 
   #what-do-we-do {
     margin: 1rem;
+  }
+
+  #services-list li,
+  #services-list li.invert {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+
+  #services-list li h4 {
+    text-align: center;
   }
 
   .project-body {
@@ -650,6 +692,16 @@ footer {
 
   #hero h1 {
     font-size: 1.25rem;
+  }
+
+  #services-list {
+    gap: 1rem;
+  }
+
+  #services-list li,
+  #services-list li.invert {
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 
   #project-highlights {
