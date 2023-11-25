@@ -323,18 +323,18 @@ footer {
   margin: 0;
 }
 
-#what-to-expect,
+#best-contact-method,
 #billing-info {
   margin: 1rem 20%;
 }
 
-#what-to-expect h2,
+#best-contact-method h2,
 #billing-info h2 {
   font-size: 1.25em;
   margin: 0;
 }
 
-#what-to-expect p,
+#best-contact-method p,
 #billing-info p {
   margin: 0;
 }
@@ -459,7 +459,7 @@ footer {
     margin: 0 10% 1rem;
   }
 
-  #what-to-expect,
+  #best-contact-method,
   #billing-info {
     margin: 1rem 10%;
   }
@@ -514,7 +514,7 @@ footer {
     font-size: 1.2em;
   }
 
-  #what-to-expect,
+  #best-contact-method,
   #billing-info {
     margin: 2rem 5%
   }
@@ -760,7 +760,7 @@ footer {
 
   #contact-info,
   #billing-info,
-  #what-to-expect,
+  #best-contact-method,
   #service-area {
     padding: 0 !important;
     margin: 0 !important;
