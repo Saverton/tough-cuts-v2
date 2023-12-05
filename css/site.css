@@ -327,13 +327,6 @@ footer {
   margin: 0 20% 2rem;
 }
 
-#service-area div {
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-  gap: .5rem;
-}
-
 #service-area h2 {
   margin: 0;
 }
@@ -343,12 +336,14 @@ footer {
   margin: 1rem 20%;
 }
 
+#service-area h2,
 #best-contact-method h2,
 #billing-info h2 {
   font-size: 1.25em;
   margin: 0;
 }
 
+#service-area p,
 #best-contact-method p,
 #billing-info p {
   margin: 0;
@@ -632,16 +627,6 @@ footer {
     text-align: center;
   }
 
-  #service-area div {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #service-area ul {
-    list-style: none;
-    padding: 0;
-  }
-
   #contact-info {
     padding: 1rem 0;
   }
@@ -775,10 +760,6 @@ footer {
   #service-area {
     padding: 0 !important;
     margin: 0 !important;
-  }
-
-  #service-area div {
-    flex-direction: column;
   }
 
   #contact-info ul {
