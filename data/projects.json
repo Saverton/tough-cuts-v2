@@ -1,0 +1,53 @@
+[
+  {
+    "name": "Project #1",
+    "date": "2023-10",
+    "isShowcased": true,
+    "images": [
+      {
+        "src": "img/placeholder_250x250.png",
+        "caption": "Placeholder image #1"
+      },
+      {
+        "src": "img/placeholder_250x250.png",
+        "caption": "Placeholder image #2"
+      }
+    ],
+    "hasCustomerReview": true,
+    "customerReview": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam optio minima dignissimos et molestias, consequuntur temporibus accusantium amet. Nihil, perferendis delectus? Ut id suscipit quidem unde animi, fugit cum quisquam rerum eum. Ipsam dolorem, reprehenderit magnam ab aspernatur nesciunt corporis, mollitia accusamus error quibusdam id architecto totam maiores similique dolor."
+  },
+  {
+    "name": "Project #2",
+    "date": "2023-11",
+    "isShowcased": false,
+    "images": [
+      {
+        "src": "img/placeholder_250x250.png",
+        "caption": "Placeholder image #1"
+      },
+      {
+        "src": "img/placeholder_250x250.png",
+        "caption": "Placeholder image #2"
+      }
+    ],
+    "hasCustomerReview": true,
+    "customerReview": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam optio minima dignissimos et molestias, consequuntur temporibus accusantium amet. Nihil, perferendis delectus? Ut id suscipit quidem unde animi, fugit cum quisquam rerum eum. Ipsam dolorem, reprehenderit magnam ab aspernatur nesciunt corporis, mollitia accusamus error quibusdam id architecto totam maiores similique dolor."
+  },
+  {
+    "name": "Project #3",
+    "date": "2023-12",
+    "isShowcased": false,
+    "images": [
+      {
+        "src": "img/placeholder_250x250.png",
+        "caption": "Placeholder image #1"
+      },
+      {
+        "src": "img/placeholder_250x250.png",
+        "caption": "Placeholder image #2"
+      }
+    ],
+    "hasCustomerReview": false,
+    "customerReview": ""
+  }
+]

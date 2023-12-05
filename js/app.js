@@ -5,10 +5,55 @@
 
   app.initIndex = async function () {
     setCopyrightYear();
+
+    const showcasedProjectContainer = document.getElementById('showcased-project');
+
+    const loadMessage = buildLoadMessage('Loading showcased project...');
+    showcasedProjectContainer.appendChild(loadMessage);
+
+    const projectObject = await getShowcasedProject();
+    
+    if (projectObject !== undefined) {
+      const showcasedProject = buildProject(projectObject);
+      
+      showcasedProjectContainer.innerHTML = '';
+      showcasedProjectContainer.appendChild(showcasedProject);
+    } else {
+      const errMessage = buildErrorMessage('Failed to get showcased project.');
+
+      showcasedProjectContainer.innerHTML = '';
+      showcasedProjectContainer.appendChild(errMessage);
+    }
   }
 
   app.initProjects = async function () {
     setCopyrightYear();
+
+    const projectsContainer = document.getElementById('projects-section');
+
+    const loadMessage = buildLoadMessage('Loading projects...');
+    projectsContainer.appendChild(loadMessage);
+
+    const projects = await getProjects();
+
+    if (projects.length > 0) {
+      const projectsFragment = document.createDocumentFragment();
+
+      projects.forEach(
+        (projectObj) => {
+          const project = buildProject(projectObj);
+          projectsFragment.appendChild(project);
+        }
+      );
+
+      projectsContainer.innerHTML = '';
+      projectsContainer.appendChild(projectsFragment);
+    } else {
+      const errMessage = buildErrorMessage('Failed to get projects.');
+
+      projectsContainer.innerHTML = '';
+      projectsContainer.appendChild(errMessage);
+    }
   }
 
   app.initFaq = async function () {
@@ -60,6 +105,26 @@
     }
   }
 
+  async function getProjects() {
+    try {
+      const response = await fetch('data/projects.json');
+      return await response.json();
+    } catch (err) {
+      console.error(err);
+      return [];
+    }
+  }
+
+  async function getShowcasedProject() {
+    const allProjects = await getProjects();
+
+    const showcasedProjects = allProjects.filter(project => project.isShowcased);
+
+    const randomIndex = Math.floor(Math.random(showcasedProjects.length));
+
+    return showcasedProjects[randomIndex];
+  }
+
   function buildFaq(faqObject) {
     const questionAnswer = document.createElement('div');
     questionAnswer.classList.add('question-answer');
@@ -76,6 +141,67 @@
     questionAnswer.appendChild(answer);
 
     return questionAnswer;
+  }
+
+  function buildProject(projectObject) {
+    const project = document.createElement('div');
+    project.classList.add('project');
+
+    const header = document.createElement('div');
+    header.classList.add('project-header');
+
+    const name = document.createElement('h3');
+    name.textContent = projectObject.name;
+    header.appendChild(name);
+
+    const date = document.createElement('time');
+    date.textContent = projectObject.date; // TODO format
+    date.setAttribute('datetime', '2023-10-01') // TODO format
+    header.appendChild(date);
+    project.appendChild(header);
+
+    const body = document.createElement('div');
+    body.classList.add('project-body');
+
+    const photos = document.createElement('div');
+    photos.classList.add('project-photos');
+    
+    projectObject.images.forEach((image) => {
+      const figure = document.createElement('figure');
+      figure.classList.add('project-photo');
+
+      const img = document.createElement('img');
+      img.src = image.src;
+      img.alt = ''; // img is linked to figcaption
+      figure.appendChild(img);
+
+      const caption = document.createElement('figcaption');
+      caption.textContent = img.caption;
+      figure.appendChild(caption);
+
+      photos.appendChild(figure);
+    });
+
+    body.appendChild(photos);
+
+    if (projectObject.hasCustomerReview) {
+      const customerReview = document.createElement('div');
+      customerReview.classList.add('customer-review');
+  
+      const customerReviewHeading = document.createElement('h4');
+      customerReviewHeading.textContent = 'Customer Review';
+      customerReview.appendChild(customerReviewHeading);
+  
+      const customerReviewBody = document.createElement('p');
+      customerReviewBody.textContent = projectObject.customerReview;
+      customerReview.appendChild(customerReviewBody);
+  
+      body.appendChild(customerReview);
+    }
+
+    project.appendChild(body);
+
+    return project;
   }
 
   function buildErrorMessage(message) {
