@@ -15,7 +15,7 @@
     
     if (projectObject !== undefined) {
       const showcasedProject = buildProject(projectObject);
-      
+
       showcasedProjectContainer.innerHTML = '';
       showcasedProjectContainer.appendChild(showcasedProject);
     } else {
@@ -155,8 +155,8 @@
     header.appendChild(name);
 
     const date = document.createElement('time');
-    date.textContent = projectObject.date; // TODO format
-    date.setAttribute('datetime', '2023-10-01') // TODO format
+    date.textContent = formatMonthString(projectObject.date);
+    date.setAttribute('datetime', projectObject.date)
     header.appendChild(date);
     project.appendChild(header);
 
@@ -223,6 +223,16 @@
   function setCopyrightYear() {
     const year = new Date().getFullYear();
     app.copyrightYear.textContent = year;
+  }
+
+  function formatMonthString(monthString) {
+    const [year, month] = monthString.split('-');
+
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+    const monthName = months[month - 1];
+
+    return `${monthName}, ${year}`;
   }
 })(window.app = window.app || {});
 
