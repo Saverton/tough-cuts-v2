@@ -172,12 +172,14 @@
 
       const img = document.createElement('img');
       img.src = image.src;
-      img.alt = ''; // img is linked to figcaption
+      img.alt = image.alt;
       figure.appendChild(img);
 
-      const caption = document.createElement('figcaption');
-      caption.textContent = img.caption;
-      figure.appendChild(caption);
+      if (image.hasCaption === true) {
+        const caption = document.createElement('figcaption');
+        caption.textContent = image.caption;
+        figure.appendChild(caption);
+      }
 
       photos.appendChild(figure);
     });

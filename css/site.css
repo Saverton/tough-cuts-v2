@@ -215,6 +215,14 @@ footer {
   gap: 1rem;
 }
 
+.project-photo img {
+  max-width: 300px;
+}
+
+.project-photo figcaption {
+  text-align: center;
+}
+
 .customer-review {
   margin: 1rem 10%;
   padding: 1rem 1.5rem;
@@ -586,10 +594,6 @@ footer {
 
   .project-photos {
     flex-direction: column;
-  }
-
-  .project figcaption {
-    text-align: center;
   }
 
   .customer-review {

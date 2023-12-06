@@ -1,53 +1,41 @@
 [
   {
-    "name": "Project #1",
-    "date": "2023-10",
+    "name": "Road Bank (Placeholder Name)",
+    "date": "2023-11",
     "isShowcased": true,
     "images": [
       {
-        "src": "img/placeholder_250x250.png",
-        "caption": "Placeholder image #1"
+        "src": "img/projects/road-bank-01.JPG",
+        "alt": "A roadside bank overgrown with thick brush. Our Ventrac is beginning to cut it down.",
+        "hasCaption": true,
+        "caption": "Before"
       },
       {
-        "src": "img/placeholder_250x250.png",
-        "caption": "Placeholder image #2"
+        "src": "img/projects/road-bank-02.JPG",
+        "alt": "The roadside bank with all brush removed and the ground below visible.",
+        "hasCaption": true,
+        "caption": "After"
       }
     ],
     "hasCustomerReview": true,
-    "customerReview": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam optio minima dignissimos et molestias, consequuntur temporibus accusantium amet. Nihil, perferendis delectus? Ut id suscipit quidem unde animi, fugit cum quisquam rerum eum. Ipsam dolorem, reprehenderit magnam ab aspernatur nesciunt corporis, mollitia accusamus error quibusdam id architecto totam maiores similique dolor."
+    "customerReview": "This is a placeholder customer review to demonstrate what one would look like when populated in the application. A customer review should be roughly 1-2 sentences, like this placeholder text!"
   },
   {
-    "name": "Project #2",
+    "name": "Sloped Front Yard (Placeholder Name)",
     "date": "2023-11",
     "isShowcased": false,
     "images": [
       {
-        "src": "img/placeholder_250x250.png",
-        "caption": "Placeholder image #1"
+        "src": "img/projects/sloped-yard-01.JPG",
+        "alt": "Our Ventrac at the top of a steep slope on one of our client's front yard.",
+        "hasCaption": false
       },
       {
-        "src": "img/placeholder_250x250.png",
-        "caption": "Placeholder image #2"
+        "src": "img/projects/sloped-yard-02.JPG",
+        "caption": "Our Ventrac turning around to mow up the sloped front yard.",
+        "hasCaption": false
       }
     ],
-    "hasCustomerReview": true,
-    "customerReview": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam optio minima dignissimos et molestias, consequuntur temporibus accusantium amet. Nihil, perferendis delectus? Ut id suscipit quidem unde animi, fugit cum quisquam rerum eum. Ipsam dolorem, reprehenderit magnam ab aspernatur nesciunt corporis, mollitia accusamus error quibusdam id architecto totam maiores similique dolor."
-  },
-  {
-    "name": "Project #3",
-    "date": "2023-12",
-    "isShowcased": false,
-    "images": [
-      {
-        "src": "img/placeholder_250x250.png",
-        "caption": "Placeholder image #1"
-      },
-      {
-        "src": "img/placeholder_250x250.png",
-        "caption": "Placeholder image #2"
-      }
-    ],
-    "hasCustomerReview": false,
-    "customerReview": ""
+    "hasCustomerReview": false
   }
 ]
