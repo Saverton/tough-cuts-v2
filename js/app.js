@@ -34,7 +34,7 @@
     const loadMessage = buildLoadMessage('Loading projects...');
     projectsContainer.appendChild(loadMessage);
 
-    const projects = await getProjects();
+    const projects = await getData('data/projects.json');
 
     if (projects.length > 0) {
       const projectsFragment = document.createDocumentFragment();
@@ -65,7 +65,7 @@
     faqContainer.appendChild(loadMessage);
 
     // pull in FAQ data
-    const faqs = await getFaqs();
+    const faqs = await getData('data/faq.json');
 
     if (faqs.length > 0) {
       const faqFragment = document.createDocumentFragment();
@@ -95,20 +95,26 @@
     setCopyrightYear();
   }
 
-  async function getFaqs() {
+  async function getData(url) {
     try {
-      const response = await fetch('data/faq.json');
-      return await response.json();
-    } catch (err) {
-      console.error(err);
-      return [];
-    }
-  }
-
-  async function getProjects() {
-    try {
-      const response = await fetch('data/projects.json');
-      return await response.json();
+      const localStorageData = localStorage.getItem(url);
+      if (localStorageData !== null) {
+        const { data, dateSerialized } = JSON.parse(localStorageData);
+        const today = new Date().toISOString().slice(0, 10);
+        // invalidates cached data after 1 day
+        if (today !== dateSerialized) {
+          localStorage.removeItem(url);
+          return getData(url);
+        } else {
+          return data;
+        }
+      } else {
+        const response = await fetch(url);
+        const data = await response.json();
+        const localStorageData = JSON.stringify({ data, dateSerialized: new Date().toISOString().slice(0, 10) });
+        localStorage.setItem(url, localStorageData);
+        return data;
+      }
     } catch (err) {
       console.error(err);
       return [];
@@ -116,7 +122,7 @@
   }
 
   async function getShowcasedProject() {
-    const allProjects = await getProjects();
+    const allProjects = await getData('data/projects.json');
 
     const showcasedProjects = allProjects.filter(project => project.isShowcased);
 
