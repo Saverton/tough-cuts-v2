@@ -418,6 +418,16 @@ footer {
   animation: pulse .75s ease-in-out infinite;
 }
 
+.error-container {
+  width: 75%;
+  margin: 2rem auto;
+}
+
+.error-container h1 {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
 @media screen and (max-width: 1440px) {
   html {
     font-size: 24px;
@@ -638,6 +648,10 @@ footer {
   #contact-info li {
     padding: .5rem 1rem;
     height: auto;
+  }
+
+  .error-container {
+    width: 90%;
   }
 
   footer {

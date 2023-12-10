@@ -95,6 +95,10 @@
     setCopyrightYear();
   }
 
+  app.initError = async function () {
+    setCopyrightYear();
+  }
+
   async function getData(url) {
     try {
       const localStorageData = localStorage.getItem(url);
