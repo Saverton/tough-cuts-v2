@@ -11,14 +11,25 @@
     const loadMessage = buildLoadMessage('Loading showcased project...');
     showcasedProjectContainer.appendChild(loadMessage);
 
-    const projectObject = await getShowcasedProject();
-    
-    if (projectObject !== undefined) {
-      const showcasedProject = buildProject(projectObject);
+    try {
+      const projectObject = await getShowcasedProject();
 
-      showcasedProjectContainer.innerHTML = '';
-      showcasedProjectContainer.appendChild(showcasedProject);
-    } else {
+      if (projectObject !== undefined) {
+        const showcasedProject = buildProject(projectObject);
+  
+        showcasedProjectContainer.innerHTML = '';
+        showcasedProjectContainer.appendChild(showcasedProject);
+      } else {
+        const projectHighlightsSection = document.getElementById('project-highlights');
+        projectHighlightsSection.getElementsByClassName('link-btn')[0].remove();
+
+        const infoMessage = buildInfoMessage('We are currently working on our project showcases. Please come back later to see some of our work.');
+
+        showcasedProjectContainer.innerHTML = '';
+        showcasedProjectContainer.appendChild(infoMessage);
+      }
+    } catch (err) {
+      console.error(err);
       const errMessage = buildErrorMessage('Failed to get showcased project.');
 
       showcasedProjectContainer.innerHTML = '';
@@ -34,21 +45,29 @@
     const loadMessage = buildLoadMessage('Loading projects...');
     projectsContainer.appendChild(loadMessage);
 
-    const projects = await getData('data/projects.json');
+    try {
+      const projects = await getData('data/projects.json');
 
-    if (projects.length > 0) {
-      const projectsFragment = document.createDocumentFragment();
+      if (projects.length > 0) {
+        const projectsFragment = document.createDocumentFragment();
 
-      projects.forEach(
-        (projectObj) => {
-          const project = buildProject(projectObj);
-          projectsFragment.appendChild(project);
-        }
-      );
+        projects.forEach(
+          (projectObj) => {
+            const project = buildProject(projectObj);
+            projectsFragment.appendChild(project);
+          }
+        );
 
-      projectsContainer.innerHTML = '';
-      projectsContainer.appendChild(projectsFragment);
-    } else {
+        projectsContainer.innerHTML = '';
+        projectsContainer.appendChild(projectsFragment);
+      } else {
+        const infoMessage = buildInfoMessage('We are currently working on our project showcases. Please come back later to see some of our work.');
+
+        projectsContainer.innerHTML = '';
+        projectsContainer.appendChild(infoMessage);
+      }
+    } catch (err) {
+      console.error(err);
       const errMessage = buildErrorMessage('Failed to get projects.');
 
       projectsContainer.innerHTML = '';
@@ -115,8 +134,12 @@
       } else {
         const response = await fetch(url);
         const data = await response.json();
-        const localStorageData = JSON.stringify({ data, dateSerialized: new Date().toISOString().slice(0, 10) });
-        localStorage.setItem(url, localStorageData);
+
+        if (data !== undefined && data !== null && data?.length > 0) {
+          const localStorageData = JSON.stringify({ data, dateSerialized: new Date().toISOString().slice(0, 10) });
+          localStorage.setItem(url, localStorageData);
+        }
+
         return data;
       }
     } catch (err) {
@@ -230,6 +253,14 @@
     loadMessage.textContent = message;
 
     return loadMessage;
+  }
+
+  function buildInfoMessage(message) {
+    const infoMessage = document.createElement('p');
+    infoMessage.classList.add('info-message');
+    infoMessage.textContent = message;
+
+    return infoMessage;
   }
 
   function setCopyrightYear() {
