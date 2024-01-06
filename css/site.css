@@ -153,8 +153,8 @@ footer {
 }
 
 .service-li-image {
-  aspect-ratio: 1;
-  max-width: 300px;
+  /* aspect-ratio: 1; */
+  max-height: 400px;
   object-fit: cover;
   object-position: center;
 }
