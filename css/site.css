@@ -57,7 +57,8 @@ header > nav > ul {
   padding-right: 1rem;
 }
 
-header > nav > ul li a {
+header > nav > ul li a,
+header > nav > ul li a:visited {
   color: white;
   text-decoration: none;
 }
@@ -91,9 +92,13 @@ header > a {
 
 footer {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 1rem;
   background-color: var(--brand-navy);
+  color: white;
+}
+
+footer a {
   color: white;
 }
 
@@ -148,18 +153,17 @@ footer {
   align-items: start;
 }
 
-#services-list li.invert {
-  flex-direction: row-reverse;
-}
-
 .service-li-image {
   /* aspect-ratio: 1; */
-  max-height: 400px;
-  object-fit: cover;
+  max-width: 800px;
+  max-height: 600px;
+  object-fit: fill;
   object-position: center;
+  border-radius: .25rem;
 }
 
-.link-btn {
+.link-btn,
+.link-btn:visited {
   display: block;
   width: fit-content;
   margin: 1rem auto;
@@ -169,6 +173,11 @@ footer {
   color: white;
   text-decoration: none;
   white-space: nowrap;
+  transition: transform .2s ease-in-out;
+}
+
+.link-btn:hover {
+  transform: scale(1.05);
 }
 
 #project-highlights {
@@ -304,13 +313,9 @@ footer {
 .about-us-section {
   margin: 1rem 15%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: start;
   gap: 1rem;
-}
-
-.about-us-section.invert {
-  flex-direction: row-reverse;
 }
 
 .about-us-section h2 {
@@ -319,13 +324,10 @@ footer {
   margin: 0;
 }
 
-.about-us-section.invert h2,
-.about-us-section.invert p {
-  text-align: right;
-}
-
 .about-us-section > img {
-  width: 500px;
+  max-width: 600px;
+  margin: auto;
+  border-radius: .25rem;
 }
 
 #about-us #contact-us-section {
@@ -456,10 +458,6 @@ footer {
   #what-do-we-do {
     margin: 1rem 15%;
   }
-
-  .about-us-section img {
-    width: 350px;
-  }
 }
 
 @media screen and (max-width: 1200px) {
@@ -476,27 +474,11 @@ footer {
   }
 
   .about-us-section {
-    display: block;
     margin: 1rem 10% 2rem;
   }
 
-  .about-us-section h2,
-  .about-us-section.invert h2 {
+  .about-us-section h2 {
     text-align: center;
-  }
-
-  .about-us-section.invert p {
-    text-align: left;
-  }
-
-  .about-us-section img {
-    float: left;
-    margin-right: 1rem;
-  }
-
-  .about-us-section.invert img {
-    float: right;
-    margin-left: 1rem;
   }
 
   #service-area {
@@ -527,7 +509,7 @@ footer {
   }
 
   .service-li-image {
-    max-width: 225px;
+    max-width: 100%;
   }
 
   #contact-us-section {
@@ -544,10 +526,6 @@ footer {
 
   .question-answer {
     margin: 0 10%;
-  }
-
-  .about-us-section img {
-    width: 300px;
   }
 
   #service-area {
@@ -595,6 +573,8 @@ footer {
   }
 
   footer {
+    flex-direction: column;
+    gap: .5rem;
     text-align: center;
   }
 
@@ -606,8 +586,7 @@ footer {
     margin: 1rem;
   }
 
-  #services-list li,
-  #services-list li.invert {
+  #services-list li {
     flex-direction: column;
     align-items: center;
     margin-left: 15%;
@@ -634,23 +613,13 @@ footer {
     margin: 1rem;
   }
 
-  .about-us-section.invert {
-    flex-direction: column;
-  }
-
-  .about-us-section h2,
-  .about-us-section.invert h2 {
+  .about-us-section h2 {
     text-align: center;
   }
 
-  .about-us-section.invert p {
-    text-align: justify;
-  }
-
-  .about-us-section img,
-  .about-us-section.invert img {
-    float: none;
-    margin: 0;
+  .about-us-section img {
+    width: 100%;
+    max-width: 600px;
   }
 
   #contact-us h2 {
@@ -677,7 +646,7 @@ footer {
 
 @media screen and (max-width: 425px) {
   p {
-    text-align:justify
+    text-align: justify;
   }
 
   #hero {
@@ -692,14 +661,13 @@ footer {
     gap: 1rem;
   }
 
-  #services-list li,
-  #services-list li.invert {
+  #services-list li {
     margin-left: 1rem;
     margin-right: 1rem;
   }
 
   #project-highlights {
-    padding: 1rem 0;
+    padding: 1rem .5rem;
   }
 
   #project-highlights h2 {
@@ -707,7 +675,7 @@ footer {
   }
 
   #projects-section {
-    padding: 0;
+    padding: .5rem;
     background-color: #fff;
   }
 
@@ -830,6 +798,10 @@ footer {
   html {
     background-color: #333;
     color: var(--light-gray);
+  }
+
+  a:visited {
+    color: #cc77db;
   }
 
   #project-highlights,
