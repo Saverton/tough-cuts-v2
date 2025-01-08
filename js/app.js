@@ -6,6 +6,8 @@
   app.initIndex = async function () {
     setCopyrightYear();
 
+    // Showcased projects are hidden for now since there is no data.
+    /*
     const showcasedProjectContainer = document.getElementById('showcased-project');
 
     const loadMessage = buildLoadMessage('Loading showcased project...');
@@ -35,6 +37,7 @@
       showcasedProjectContainer.innerHTML = '';
       showcasedProjectContainer.appendChild(errMessage);
     }
+    */
   }
 
   app.initProjects = async function () {

@@ -4,13 +4,16 @@
 :root {
   --brand-navy: #06315c;
   --brand-red: rgb(203, 0, 0);
+  --brand-red-rgb: 203, 0, 0;
+  --brand-red-dark: rgb(177, 0, 0);
+  --brand-red-darker: rgb(151, 0, 0);
+  --brand-red-faded: rgb(203, 75, 75);
   --light-gray: #dddddd;
   --danger: #a00;
   --info: #00c;
 }
 
 html {
-  font-family: 'Saira', sans-serif;
   font-size: 28px;
 }
 
@@ -19,11 +22,16 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  font-family: 'Saira', sans-serif;
 }
 
 main {
   flex-grow: 1;
   min-height: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
 }
 
 h1 {
@@ -39,47 +47,13 @@ ul {
   margin: 0;
 }
 
-header {
-  background-color: var(--brand-navy);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: .5rem;
-}
-
-header > nav > ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: end;
-  column-gap: 1rem;
-  list-style: none;
-  padding-left: 0;
-  padding-right: 1rem;
-}
-
-header > nav > ul li a,
-header > nav > ul li a:visited {
-  color: white;
-  text-decoration: none;
-}
-
-header > nav > ul li a.active {
-  text-decoration: underline;
-  text-underline-offset: .25rem;
-}
-
-header > a {
-  color: inherit;
-  text-decoration: none;
-}
-
 .logo {
   background-color: var(--light-gray);
   padding: .2rem;
   border-radius: 5px;
 }
 
-.logo p {
+.logo > div {
   background-color: var(--light-gray);
   color: var(--brand-navy);
   border: 3px solid white;
@@ -90,17 +64,29 @@ header > a {
   text-transform: capitalize;
 }
 
-footer {
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem;
-  background-color: var(--brand-navy);
-  color: white;
+/* bootstrap utility */
+.text-bg-navy {
+  background-color: var(--brand-navy) !important;
+  color: white !important;
 }
 
-footer a {
-  color: white;
+.btn-red {
+  --bs-btn-color: white;
+  --bs-btn-bg: var(--brand-red);
+  --bs-btn-border-color: var(--brand-red);
+  --bs-btn-hover-color: white;
+  --bs-btn-hover-bg: var(--brand-red-dark);
+  --bs-btn-hover-border-color: var(--brand-red-dark);
+  --bs-btn-focus-shadow-rgb: var(--brand-red-rgb);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--brand-red-darker);
+  --bs-btn-active-border-color: var(--brand-red-darker);
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: var(--brand-red-faded);
+  --bs-btn-disabled-border-color: var(--brand-red-faded);
 }
+/* end of bootstrap utility */
 
 #hero {
   position: relative;
@@ -110,7 +96,7 @@ footer a {
   overflow: hidden;
 }
 
-#hero h1 {
+.hero-heading {
   position: absolute;
   top: 75%;
   width: 100%;
@@ -120,6 +106,8 @@ footer a {
   background-color: rgba(0, 0, 0, 0.5);
   box-shadow: 0 -25px 25px rgba(0, 0, 0, 0.5);
   text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
 }
 
 #hero img {
@@ -127,39 +115,6 @@ footer a {
   height: 100%;
   object-fit: cover;
   object-position: center;
-}
-
-#what-do-we-do {
-  max-width: 1200px;
-  margin: 1rem auto;
-}
-
-#what-do-we-do h2 {
-  text-align: center;
-}
-
-#services-list {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  margin-bottom: 2rem;
-}
-
-#services-list li {
-  display: flex;
-  gap: 1rem;
-  align-items: start;
-}
-
-.service-li-image {
-  /* aspect-ratio: 1; */
-  max-width: 800px;
-  max-height: 600px;
-  object-fit: fill;
-  object-position: center;
-  border-radius: .25rem;
 }
 
 .link-btn,
@@ -454,21 +409,9 @@ footer a {
   #hero {
     max-height: 500px;
   }
-
-  #what-do-we-do {
-    margin: 1rem 15%;
-  }
 }
 
 @media screen and (max-width: 1200px) {
-  #what-do-we-do {
-    margin: 1rem 10%;
-  }
-
-  #contact-us-section {
-    margin: 0 10%;
-  }
-
   .question-answer {
     margin: 0 15%;
   }
@@ -496,28 +439,8 @@ footer a {
     font-size: 20px;
   }
 
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.75rem;
-  }
-
   #hero {
     max-height: 400px;
-  }
-
-  .service-li-image {
-    max-width: 100%;
-  }
-
-  #contact-us-section {
-    margin: 0 5%;
-  }
-
-  #contact-us-section h2 {
-    font-size: 1.25rem;
   }
 
   #projects-section {
@@ -551,50 +474,12 @@ footer a {
     font-size: 16px;
   }
 
-  h1 {
-    font-size: 1.5rem;
-  }
-
-  h2 {
-    font-size: 1.25rem;
-  }
-
-  header {
-    flex-direction: column;
-    gap: .5rem;
-    padding: .75rem;
-  }
-
-  header > nav > ul {
-    justify-content: center;
-    padding: 0;
-    flex-wrap: wrap;
-    row-gap: .5rem;
-  }
-
-  footer {
-    flex-direction: column;
-    gap: .5rem;
-    text-align: center;
-  }
-
   #hero {
     max-height: 250px;
   }
-
-  #what-do-we-do {
-    margin: 1rem;
-  }
-
-  #services-list li {
-    flex-direction: column;
-    align-items: center;
-    margin-left: 15%;
-    margin-right: 15%;
-  }
-
-  #services-list li h4 {
-    text-align: center;
+  
+  .hero-heading {
+    font-size: 2rem;
   }
 
   .project-photos {
@@ -638,32 +523,15 @@ footer a {
   .error-container {
     width: 90%;
   }
-
-  footer {
-    justify-content: center;
-  }
 }
 
 @media screen and (max-width: 425px) {
-  p {
-    text-align: justify;
-  }
-
   #hero {
     max-height: 200px;
   }
-
-  #hero h1 {
-    font-size: 1.25rem;
-  }
-
-  #services-list {
-    gap: 1rem;
-  }
-
-  #services-list li {
-    margin-left: 1rem;
-    margin-right: 1rem;
+    
+  .hero-heading {
+    font-size: 1.5rem;
   }
 
   #project-highlights {
@@ -800,10 +668,6 @@ footer a {
     color: var(--light-gray);
   }
 
-  a:visited {
-    color: #cc77db;
-  }
-
   #project-highlights,
   #projects-section {
     background-color: #151515;
@@ -811,10 +675,6 @@ footer a {
 
   .project {
     background-color: #454545;
-  }
-
-  #contact-us-section {
-    background-color: #333;
   }
 
   .question::before,
