@@ -43,6 +43,9 @@
   app.initProjects = async function () {
     setCopyrightYear();
 
+    window.location.href = "./index.html"; // redirect, this page is empty
+
+    /*
     const projectsContainer = document.getElementById('projects-section');
 
     const loadMessage = buildLoadMessage('Loading projects...');
@@ -76,6 +79,7 @@
       projectsContainer.innerHTML = '';
       projectsContainer.appendChild(errMessage);
     }
+    */
   }
 
   app.initFaq = async function () {
@@ -151,6 +155,7 @@
     }
   }
 
+  /*
   async function getShowcasedProject() {
     const allProjects = await getData('data/projects.json');
 
@@ -160,17 +165,18 @@
 
     return showcasedProjects[randomIndex];
   }
+  */
 
   function buildFaq(faqObject) {
     const questionAnswer = document.createElement('div');
-    questionAnswer.classList.add('question-answer');
+    questionAnswer.classList.add('question-answer', 'rounded', 'shadow', 'p-3', 'mb-4');
 
     const question = document.createElement('p');
     question.classList.add('question');
     question.textContent = faqObject.question;
 
     const answer = document.createElement('p');
-    answer.classList.add('answer');
+    answer.classList.add('answer', 'mb-0');
     answer.textContent = faqObject.answer;
 
     questionAnswer.appendChild(question);
@@ -179,6 +185,7 @@
     return questionAnswer;
   }
 
+  /*
   function buildProject(projectObject) {
     const project = document.createElement('div');
     project.classList.add('project');
@@ -241,6 +248,7 @@
 
     return project;
   }
+  */
 
   function buildErrorMessage(message) {
     const errMessage = document.createElement('p');
@@ -258,6 +266,7 @@
     return loadMessage;
   }
 
+  /*
   function buildInfoMessage(message) {
     const infoMessage = document.createElement('p');
     infoMessage.classList.add('info-message');
@@ -265,20 +274,23 @@
 
     return infoMessage;
   }
+  */
 
   function setCopyrightYear() {
     const year = new Date().getFullYear();
     app.copyrightYear.textContent = year;
   }
 
+  /*
+  const MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
   function formatMonthString(monthString) {
     const [year, month] = monthString.split('-');
 
-    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-    const monthName = months[month - 1];
+    const monthName = MONTH_NAMES[month - 1];
 
     return `${monthName}, ${year}`;
   }
+  */
 })(window.app = window.app || {});
 
