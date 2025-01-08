@@ -169,7 +169,7 @@
 
   function buildFaq(faqObject) {
     const questionAnswer = document.createElement('div');
-    questionAnswer.classList.add('question-answer', 'rounded', 'shadow', 'p-3', 'mb-4');
+    questionAnswer.classList.add('question-answer', 'bg-white', 'rounded', 'shadow', 'p-3', 'mb-4');
 
     const question = document.createElement('p');
     question.classList.add('question');
