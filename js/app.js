@@ -41,11 +41,11 @@
   }
 
   app.initProjects = async function () {
+    window.location.href = "./index.html"; // redirect, this page is empty
+    
+    /*
     setCopyrightYear();
 
-    window.location.href = "./index.html"; // redirect, this page is empty
-
-    /*
     const projectsContainer = document.getElementById('projects-section');
 
     const loadMessage = buildLoadMessage('Loading projects...');
